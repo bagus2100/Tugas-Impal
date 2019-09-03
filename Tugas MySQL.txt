@@ -1,0 +1,15 @@
+CREATE TABLE apotek (
+	ID int primary key,
+	Nama varchar(50),
+	Email varchar(50),
+	PASSWORD varchar(50),
+	created_date DATE
+);
+
+INSERT INTO 'apotek' ('ID', 'Nama', 'Email', 'Password') VALUES ('1','Bagus', 'bagus@gmail.com', '123456',03-09-2019);
+
+UPDATE apotek SET PASSWORD = 'ayam' WHERE ID = 1;
+DELETE FROM apotek WHERE ID = 2;
+CREATE TRIGGER 'insertLog' AFTER INSERT ON 'apotek' FOR EACH ROW INSERT INTO logs VALUES(null, NEW.ID, 'inserted', NOW());
+
+
